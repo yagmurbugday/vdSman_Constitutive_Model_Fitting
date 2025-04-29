@@ -57,11 +57,48 @@ def read_data(n_header, n_rows, header_list, what_to_collect_time,\
 
         for elem2 in what_to_collect_single:
             a= var[elem2].tolist()
+            print(a[0])
             
             for k in range(0,int(cyclesdata)):
                 sample_strain_single.append(a[k*int(ndata_percycle)])
                 
         n_header = n_header + n_rows + rows_btw_data
+
+        data.append(sample_strain)
+        data_single.append(sample_strain_single)
+        i+=1
+
+    return data, data_single
+
+def read_data_sheets(n_header, n_rows, header_list, what_to_collect_time,\
+               what_to_collect_single,path_read, sheet_name,\
+               sample_list, rows_btw_data, cyclesdata, ndata_percycle):
+    
+    data = []
+    data_single = []
+    i=0
+    for sample in sample_list:
+        sample_strain_single = []
+        sample_strain = []
+        sheet_name_elem = sheet_name[i]
+        print(sheet_name_elem)
+
+        var = pd.read_excel(io=path_read, sheet_name=sheet_name_elem, header=n_header, names=header_list, nrows=n_rows)
+        
+
+        for elem1 in what_to_collect_time:
+            
+            elem = var[elem1].tolist()
+            sample_strain.append(elem)
+
+        for elem2 in what_to_collect_single:
+            a= var[elem2].tolist()
+            print(a[0])
+            
+            for k in range(0,int(cyclesdata)):
+                sample_strain_single.append(a[k*int(ndata_percycle)])
+                
+        n_header =  2 #n_header + n_rows + rows_btw_data
 
         data.append(sample_strain)
         data_single.append(sample_strain_single)
@@ -81,11 +118,44 @@ def read_data1(n_header, n_rows, header_list, what_to_collect_time, path_read, s
             sample_strain.append(var[elem].tolist())
                 
         n_header = n_header + n_rows + rows_btw_data
+        print(n_header)
 
         data.append(sample_strain)
         i+=1
 
     return data
+
+def read_data2(n_header, n_rows, header_list, what_to_collect_time,\
+               what_to_collect_single,path_read, sheet_name,\
+               sample_list, rows_btw_data, nelem):
+    
+    data = []
+    data_single = []
+    i=0
+    for sample in sample_list:
+        sample_strain_single = []
+        sample_strain = []
+
+        var = pd.read_excel(io=path_read, sheet_name=sheet_name, header=n_header, names=header_list, nrows=n_rows)
+        
+
+        for elem1 in what_to_collect_time:
+            
+            elem = var[elem1].tolist()
+            sample_strain.append(elem)
+
+        for elem2 in what_to_collect_single:
+            a= var[elem2].tolist()
+            
+            sample_strain_single.append(a[0])
+                
+        n_header = n_header + n_rows + rows_btw_data
+
+        data.append(sample_strain)
+        data_single.append(sample_strain_single)
+        i+=1
+
+    return data, data_single
 
 # ───────────────────────────────────────────────────────────────────
 #   HB fitting for HB informed fitting
@@ -133,7 +203,12 @@ def extract_steady_from_laos(data_exp_avg,nelements_cycle, col_index_shearrate, 
         xdat = []
         for i in np.linspace(minindex_x,0,minindex_x+1):
             i=int(i)
-            if ypos[i-1]< ypos[i] and ypos[i-2] < ypos[i]: break
+            if (ypos[i-2] < ypos[i] and 
+                ypos[i-5] < ypos[i] and 
+                ypos[i-10] < ypos[i] and 
+                ypos[i-20] < ypos[i] and 
+                ypos[i-40] < ypos[i]):
+                break
             else: ydat.append(ypos[i]) ; xdat.append(xpos[i])
 
         ultimate_shrate.append(xdat)  
