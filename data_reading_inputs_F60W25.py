@@ -34,18 +34,19 @@ import importlib
 import textwrap
 import sys
 
-path_read="./experimental_data/2024-08-06/20240905_P60.xlsx"
-freqvals_frfit= [ 0.1, 0.1585, 0.2512, 0.3981, 0.631, 1, 1.585, 2.512, 3.981, 6.31, 10]
+path_read="/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/fiber_inks/experimental_data/lauren_data/F60W25.xlsx"
+
+freqvals_frfit= np.logspace(-1,1,10)
 color_palette = plt.cm.hsv(np.linspace(0, 1, 16))
 str_grw_shear_rates = [0.063, 0.1, 0.17, 0.28, 0.45, 0.73, 1.2,\
                 1.96, 3.21, 5.25, 8.58, 14,23,37,61]
-saos_strain_perc = 0.1
-ndata_cycle =257 
+saos_strain_perc = 1
+ndata_cycle =513
 font = {'family' : 'arial',
         'weight' : 'bold',
         'size'   : 24}
 
 plt.rcParams.update({'font.size': 24})
 
-cyclesdata=5
-ndata_percycle =257
+cyclesdata=10
+ndata_percycle =513
