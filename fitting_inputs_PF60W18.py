@@ -121,7 +121,7 @@ ntimesteps_cycle = nelements_cycle -1
 
 #Option 1: Read a previous run case
 run_HB = 'no'
-readHB = 'HBfit_2025_04_29_09_01' #read this file if you do not run a new case
+readHB = 'HBfit_2025_05_08_14_54' #read this file if you do not run a new case
 
 #Option2: Run the HB fitting from scratch
 #run_HB = 'yes'
@@ -150,7 +150,7 @@ error_HBext = [0,0,0] #sigma_y, dot_gamma_cr, n
 
 #Option 2:
 runSAOS = 'no'
-readSAOS = 'SAOSfit_2025_04_29_09_59'
+readSAOS = 'SAOSfit_2025_05_08_14_54'
 
 #These inputs are used while performing the fitting
 #The initial guess for the SAOS fitting
@@ -179,7 +179,7 @@ init_guess_lin =  [modulus[0], t_rel[0]]
 
 #Option 2:
 runLAOS = 'no'
-readLAOS = 'LAOSfit_all_2025_04_29_10_10'
+readLAOS = 'LAOSfit_all_2025_05_08_14_54'
 
 #The initial guess for the LAOS fitting
 tau_y_log=[0.5] 

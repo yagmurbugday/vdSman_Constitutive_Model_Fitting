@@ -34,8 +34,9 @@ import importlib
 import textwrap
 import sys
 
-path_read="/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/vdSman_Constitutive_Model_Fitting/experimental_data/lauren_data/PF60W18.xlsx"
-freqvals_frfit= np.logspace(-1,1,9)
+path_read="/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/PF60W18/experimental_data/lauren_data/PF60W25.xlsx"
+
+freqvals_frfit= np.logspace(-1,1,10)
 color_palette = plt.cm.hsv(np.linspace(0, 1, 16))
 str_grw_shear_rates = [0.063, 0.1, 0.17, 0.28, 0.45, 0.73, 1.2,\
                 1.96, 3.21, 5.25, 8.58, 14,23,37,61]
