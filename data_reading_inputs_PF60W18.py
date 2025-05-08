@@ -34,7 +34,7 @@ import importlib
 import textwrap
 import sys
 
-path_read="/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/PF60W18/experimental_data/lauren_data/PF60W18.xlsx"
+path_read="/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/potato_flake_inks/experimental_data/lauren_data/PF60W18.xlsx"
 freqvals_frfit= np.logspace(-1,1,9)
 color_palette = plt.cm.hsv(np.linspace(0, 1, 16))
 str_grw_shear_rates = [0.063, 0.1, 0.17, 0.28, 0.45, 0.73, 1.2,\
