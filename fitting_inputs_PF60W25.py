@@ -87,7 +87,7 @@ target_strain =120 # to extract the stress at
 # time  = [ freq0_StrainLin , freq1_StrainLin, freq2_StrainLin, ... , freqN_StrainLin, ]
 #for instance: data_exp_frswp_waveform_avg[0][0][1] has the stress data from all the frequencies sequentially. 
 strain_lin = 0.01
-freqvals_frfit= np.logspace(-1,1,9)
+freqvals_frfit= np.logspace(-1,1,10)
          
 
 #There are also datasets from strain sweeps 
@@ -121,7 +121,7 @@ ntimesteps_cycle = nelements_cycle -1
 
 #Option 1: Read a previous run case
 run_HB = 'no'
-readHB = 'HBfit_2025_05_08_17_00' #read this file if you do not run a new case
+readHB = 'HBfit_2025_05_09_12_05' #read this file if you do not run a new case
 
 #Option2: Run the HB fitting from scratch
 #run_HB = 'yes'
@@ -150,7 +150,7 @@ error_HBext = [0,0,0] #sigma_y, dot_gamma_cr, n
 
 #Option 2:
 runSAOS = 'no'
-readSAOS = 'SAOSfit_2025_05_08_17_00'
+readSAOS = 'SAOSfit_2025_05_09_12_05'
 
 #These inputs are used while performing the fitting
 #The initial guess for the SAOS fitting
@@ -175,11 +175,11 @@ init_guess_lin =  [modulus[0], t_rel[0]]
 # ╚═════════════════════════════════════════════════════════════════╝
 
 #Option 1:
-# runLAOS = 'yes'
+#runLAOS = 'yes'
 
 #Option 2:
 runLAOS = 'no'
-readLAOS = 'LAOSfit_all_2025_05_08_17_00'
+readLAOS = 'LAOSfit_all_2025_05_09_12_05'
 
 #The initial guess for the LAOS fitting
 tau_y_log=[0.5] 
