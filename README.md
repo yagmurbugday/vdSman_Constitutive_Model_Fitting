@@ -9,3 +9,23 @@ This program fits an oscillatory shear rheology dataset containing small and lar
  
 ## Data Fitting
 fitting.ipynb :  the fitting script, which takes fitting_inputs.py as an input. 
+
+## Data Information
+
+### F60 W18
+Data: 
+/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/fiber_inks/data_reading/arrays_2025_05_08_16_46_humanreadable.py
+
+Parameter files: 2025_05_08_17_26
+
+### F60 W22
+Data:
+/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/fiber_inks/data_reading/arrays_2025_05_08_16_52_humanreadable.py
+
+Parameter Files: 2025_05_09_08_26
+
+### F60 W25
+Data:
+/Users/yagmurbalabanli/GitLab/LAOS_fit_lauren/fiber_inks/data_reading/arrays_2025_05_08_16_56_humanreadable.py
+
+Parameter Files: 2025_05_09_14_44
