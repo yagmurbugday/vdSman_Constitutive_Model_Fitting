@@ -58,9 +58,9 @@ col_index_strain = 2
 col_index_shearrate = 3
 #The sequential order of the data_exp_avg must follow the order of the strain and frequency values provided
 #in the following arrays
-strain_values_perc_nonlin = [120,100,50,30,15,10,5]
+strain_values_perc_nonlin = [80,70,55,25,1]
 strain_values_nonlin = np.divide(strain_values_perc_nonlin,100) #strain should be actual not percentage
-freqvals = [2,4,8]
+freqvals = [2,6,12]
 #The demo set is [ freq2Hz+Strain120% , freq2Hz+Strain100%, freq2Hz+Strain50%, ... , 
 #                  freq4Hz+Strain120% , freq4Hz+Strain100%, freq4Hz+Strain50%, ... , 
 #                  freq8Hz+Strain120% , freq8Hz+Strain100%, freq8Hz+Strain50%, ... ]
@@ -86,8 +86,8 @@ target_strain =120 # to extract the stress at
 # data_exp_frswp_waveform_avg= [ [ time , stress, strain , shear_rate ] ]
 # time  = [ freq0_StrainLin , freq1_StrainLin, freq2_StrainLin, ... , freqN_StrainLin, ]
 #for instance: data_exp_frswp_waveform_avg[0][0][1] has the stress data from all the frequencies sequentially. 
-strain_lin = 0.001
-freqvals_frfit= [ 0.1, 0.1585, 0.2512, 0.3981, 0.631, 1, 1.585, 2.512, 3.981, 6.31, 10]
+strain_lin = 0.01
+freqvals_frfit= np.logspace(-1,1,10)
          
 
 #There are also datasets from strain sweeps 
@@ -105,13 +105,13 @@ current_time = datetime.datetime.now()
 formatted_time = current_time.strftime('%Y_%m_%d_%H_%M')
 
 #How many cycles will the model be running for? the fitting is always by using the last cycle. 
-cycles = 5
+cycles = 10
 
 #The highest shear rate viscosy to prevent errors in calcualtion. 
 eta_inf = 1e-9
 
 #Number of elements and time
-nelements_cycle = 257 #from 0 to final data
+nelements_cycle = 513 #from 0 to final data
 ntimesteps_cycle = nelements_cycle -1
 
 
@@ -121,19 +121,19 @@ ntimesteps_cycle = nelements_cycle -1
 
 #Option 1: Read a previous run case
 run_HB = 'no'
-readHB = 'HBfit_2024_10_24_18_12' #read this file if you do not run a new case
+readHB = 'HBfit_2025_05_09_11_50' #read this file if you do not run a new case
 
 #Option2: Run the HB fitting from scratch
 #run_HB = 'yes'
 extract_HB_param_from_laos = 'yes' #use LAOS data?
-extract_HB_param_from_external = 'yes' #provide an external result?
-extract_HB_param_from_stress_growth = 'yes' #use stress growth data?
+extract_HB_param_from_external = 'no' #provide an external result?
+extract_HB_param_from_stress_growth = 'no' #use stress growth data?
 #There is one general output file for all cases in this section
 
 #Which data to take from LAOS set while building the flow curves from LAOS data?
 #Provide the index for the data in the data_exp_all. 
 #These indicate the highest strains from the each 3 amplitudes in the demo set. 
-data_index_for_laos_built_flow_curves = [0,1,2,7,8,9,14,15,16]
+data_index_for_laos_built_flow_curves = [0,1,2,5,6,7,10]
 skip_first = 3 #skip the first ** of laos extracted flow data while evaluating
 
 #External parameters
@@ -150,7 +150,7 @@ error_HBext = [0,0,0] #sigma_y, dot_gamma_cr, n
 
 #Option 2:
 runSAOS = 'no'
-readSAOS = 'SAOSfit_2024_10_24_18_12'
+readSAOS = 'SAOSfit_2025_05_09_11_50'
 
 #These inputs are used while performing the fitting
 #The initial guess for the SAOS fitting
@@ -179,7 +179,7 @@ init_guess_lin =  [modulus[0], t_rel[0]]
 
 #Option 2:
 runLAOS = 'no'
-readLAOS = 'LAOSfit_all_2024_10_24_18_12'
+readLAOS = 'LAOSfit_all_2025_05_09_11_50'
 
 #The initial guess for the LAOS fitting
 tau_y_log=[0.5] 
