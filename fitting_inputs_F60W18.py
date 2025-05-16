@@ -120,11 +120,11 @@ ntimesteps_cycle = nelements_cycle -1
 # ╚═════════════════════════════════════════════════════════════════╝
 
 #Option 1: Read a previous run case
-run_HB = 'no'
-readHB = 'HBfit_2025_05_08_17_26' #read this file if you do not run a new case
+# run_HB = 'no'
+# readHB = 'HBfit_2025_05_08_17_26' #read this file if you do not run a new case
 
 #Option2: Run the HB fitting from scratch
-#run_HB = 'yes'
+run_HB = 'yes'
 extract_HB_param_from_laos = 'yes' #use LAOS data?
 extract_HB_param_from_external = 'no' #provide an external result?
 extract_HB_param_from_stress_growth = 'no' #use stress growth data?
@@ -133,7 +133,7 @@ extract_HB_param_from_stress_growth = 'no' #use stress growth data?
 #Which data to take from LAOS set while building the flow curves from LAOS data?
 #Provide the index for the data in the data_exp_all. 
 #These indicate the highest strains from the each 3 amplitudes in the demo set. 
-data_index_for_laos_built_flow_curves = [0,1,5,6,7,10,11,12]
+data_index_for_laos_built_flow_curves = [0,1,2,7,8,10]
 skip_first = 3 #skip the first ** of laos extracted flow data while evaluating
 
 #External parameters
@@ -146,11 +146,11 @@ error_HBext = [0,0,0] #sigma_y, dot_gamma_cr, n
 # ╚═════════════════════════════════════════════════════════════════╝
 
 #Option 1:
-#runSAOS = 'yes'
+runSAOS = 'yes'
 
 #Option 2:
-runSAOS = 'no'
-readSAOS = 'SAOSfit_2025_05_08_17_26'
+# runSAOS = 'no'
+# readSAOS = 'SAOSfit_2025_05_08_17_26'
 
 #These inputs are used while performing the fitting
 #The initial guess for the SAOS fitting
@@ -175,11 +175,11 @@ init_guess_lin =  [modulus[0], t_rel[0]]
 # ╚═════════════════════════════════════════════════════════════════╝
 
 #Option 1:
-#runLAOS = 'yes'
+runLAOS = 'yes'
 
 #Option 2:
-runLAOS = 'no'
-readLAOS = 'LAOSfit_all_2025_05_08_17_26'
+# runLAOS = 'no'
+# readLAOS = 'LAOSfit_all_2025_05_08_17_26'
 
 #The initial guess for the LAOS fitting
 tau_y_log=[0.5] 
